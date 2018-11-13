@@ -9,7 +9,7 @@ MongoClient.connect(urlMongo, { useNewUrlParser: true }, function (err, client) 
     if (err) throw err;
     clientDB = client;
     var collectionP = client.db('performance_collector_unacloud').collection('MetricsCollection');
-    for (let i = 7; i < 20; i++) {
+    for (let i = 7; i < 23; i++) {
         const year = 2018;
         let minute = i;
         let minute2 = i + 1;
