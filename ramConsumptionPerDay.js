@@ -24,7 +24,7 @@ MongoClient.connect(urlMongo, { useNewUrlParser: true }, function (err, client) 
                             //Promedio del minuto "minute" para el dia d month m
                             let avg = 0;
                             for (let j = 0; j < docs.length; j++) {
-                                avg += docs[j].cpu;
+                                avg += docs[j].ram.percent;
                             }
                             avg /= docs.length;
                             console.log("m: " + m + " d: " + d + " min: " + minute + " avg: " + avg);
@@ -124,10 +124,10 @@ function print() {
     lines += diff_q3 + "\n";
     lines += diff_max + "\n";
 
-    fs.writeFile('resultCpu.csv', lines, function (err) {
+    fs.writeFile('resultRam.csv', lines, function (err) {
         if (err) throw err;
     });
-    fs.writeFile('resultRawCpu.txt', lines, function (err) {
+    fs.writeFile('resultRawRam.txt', lines, function (err) {
         if (err) throw err;
     });
 }
